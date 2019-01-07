@@ -378,7 +378,25 @@ Serverless offline plugin can invoke shell scripts when a simulated server has b
 ## Simulation quality
 
 This plugin simulates API Gateway for many practical purposes, good enough for development - but is not a perfect simulator.
-Specifically, Lambda currently runs on Node v6.10.0 and v8.10.0 ([AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html)), whereas _Offline_ runs on your own runtime where no memory limits are enforced.
+Specifically, Lambda currently runs on Node v6.10.0 and v8.10.0 ([AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html)), whereas _Emulate_ runs on your own runtime where no memory limits are enforced.
+
+you can get a better Result with our Docker deployment
+
+| Resource | Limit |
+| --- | --- |
+| Function memory allocation | 128 MB to 3008 MB, in 64 MB increments. |
+| Function timeout | 900 seconds (15 minutes) |
+| Function environment variables | 4 KB |
+| Function layers | 5 layers |
+| Invocation payload (request and response) | 6 MB (synchronous) |
+| | 256 KB(asynchronous) |
+| Deployment package size | 50 MB(zipped) |
+| | 250 MB(unzipped, including layers) |
+| | 3 MB (console editor) |
+| Test events (console editor) | 10 |
+| /tmp directory storage | 512 MB |
+| File descriptors | 1024 |
+| Execution processes/threads | 1024 |
 
 
 ## Usage with serverless-dynamodb-local and serverless-webpack plugin
